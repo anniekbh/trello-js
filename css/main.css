@@ -20,6 +20,16 @@ body {
 #casillero {
 	cursor: pointer;
 }
+
 .ocultar {
 	display: none;
+}
+
+.button {
+	display: block;
+}
+
+.ancor{
+	display: block;
+	text-decoration: none;
 }
