@@ -6,6 +6,7 @@ body {
 	background-image: url("../img/cat-cute.jpg");
 	white-space: nowrap;
 	background-size: cover;
+	font-family: "Amatic SC", cursive;
 }
 nav{
 	position: fixed;
@@ -24,11 +25,12 @@ nav{
 #casillero {
 	cursor: pointer;
 	display: inline-block;
+	margin-left: 10%;
 }
 
 .bloque{
 	display: inline-block;
-	margin-right: 2%;
+	margin: 1% 2%;
 }
 
 span{
@@ -49,6 +51,12 @@ span{
 	text-decoration: none;
 }
 .derecha{
-	display: inline-block;
-	margin-left: 3%;
+	position: relative;
+}
+
+.estiloTarjeta{
+	padding: 5px;
+	background-color: #FFF;
+	border-radius: 4px;
+	margin-bottom: 8px;
 }

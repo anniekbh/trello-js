@@ -7,17 +7,18 @@ var boton = document.getElementById("boton");
 
 window.addEventListener("load", function() {
 
-    casilla.addEventListener("click", function() {
-
+    casilla.addEventListener("click", function(e) {
+        e.preventDefault();
         this.style.display = "none";
         formulario.style.display = "block";
         inpuText.focus();
     });
 
-    boton.addEventListener("click", function(event){
-        event.preventDefault();
+    boton.addEventListener("click", function(e) {
+        e.preventDefault();
         crearTitulo();
         inpuText.value="";
+        moverForm();
     }); 
     
 });
@@ -40,14 +41,27 @@ function crearTitulo(){
     bloque.insertBefore(tituloLista, bloque.children[0]);
     bloque.insertBefore(ancor, bloque.children[1]);
     receptor.appendChild(bloque);
-    moverForm();
+    
+    /*ancor.addEventListener("click", function(){
+        crearTarjeta(ancor);
+    });*/  
+};
 
-    ancor.addEventListener("click", function(){
-        crearTarjeta();
-    });
+function moverForm(){
+    receptor.insertBefore(bloque.nextSibling)
+    /*var newReceptor = document.createElement("div");
 
-    function crearTarjeta(){
+    newReceptor.setAttribute("class","derecha");
+    casilla.style.display = "inline";
+
+    newReceptor.insertBefore(formulario, newReceptor.children[1]);
+    newReceptor.insertBefore(casilla, newReceptor.children[0]);
+    contenedor.appendChild(newReceptor);*/
+};
+
+/*function crearTarjeta(ancor){
     ancor.style.display = "none";
+    
     var nuevoTitulo = document.createElement("textarea");
     var tarjeta = document.createElement("form");
     var botoNuevo = document.createElement("input");
@@ -58,29 +72,17 @@ function crearTitulo(){
     tarjeta.insertBefore(nuevoTitulo, tarjeta.children[0]);
     tarjeta.insertBefore(botoNuevo, tarjeta.children[1]);
 
-    /*botonNuevo.addEventListener("click", function(e) {
+    botoNuevo.addEventListener("click", function(e) {
             e.preventDefault();
             var textoTarjeta = nuevoTitulo.value;
-            var divTarjeta = document.createElement("div");
-            div.innerHTML = textoDiv;
+            var nuevaTarjeta = document.createElement("div");
+
+            nuevaTarjeta.innerHTML = textoTarjeta;
             tarjeta.style.display = "none";
             ancor.parentElement.appendChild(div);
-            div.classList.add("divBorder");
-            div.parentElement.appendChild(enlace);
+            div.classList.add("estiloTarjeta");
+            div.parentElement.appendChild(ancor);
             ancor.style.display = "block";
 
-        });*/
-    }
-}
-
-function moverForm(){
-    var newReceptor = document.createElement("div");
-
-    newReceptor.setAttribute("class","derecha");
-    casilla.style.display = "inline";
-
-    contenedor.insertBefore(newReceptor, contenedor.children[1]);
-    newReceptor.insertBefore(casilla, newReceptor.children[0]);
-    newReceptor.insertBefore(formulario, newReceptor.children[1]);
-}
-
+        });
+};*/
