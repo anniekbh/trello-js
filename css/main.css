@@ -7,18 +7,33 @@ body {
 	white-space: nowrap;
 	background-size: cover;
 }
+nav{
+	position: fixed;
+}
 
 #contenedor {
-	padding-top: 20px;
-	padding-left: 40px;
+	padding-top: 5%;
 }
 
 #receptor {
 	display: inline-block;
+	margin-right: 3%;
+	margin-left: 3%;
 }
 
 #casillero {
 	cursor: pointer;
+	display: inline-block;
+}
+
+.bloque{
+	display: inline;
+	height: 100%;
+}
+
+span{
+	margin-left: 3%;
+	display: inline-block;
 }
 
 .ocultar {
@@ -32,4 +47,8 @@ body {
 .ancor{
 	display: block;
 	text-decoration: none;
+}
+.derecha{
+	display: inline-block;
+	margin-left: 3%;
 }
