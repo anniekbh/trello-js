@@ -1,0 +1,25 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-image: url("../img/cat-cute.jpg");
+	white-space: nowrap;
+	background-size: cover;
+}
+
+#contenedor {
+	padding-top: 20px;
+	padding-left: 40px;
+}
+
+#receptor {
+	display: inline-block;
+}
+
+#casillero {
+	cursor: pointer;
+}
+.ocultar {
+	display: none;
+}
