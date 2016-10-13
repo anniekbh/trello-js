@@ -27,8 +27,8 @@ nav{
 }
 
 .bloque{
-	display: inline;
-	height: 100%;
+	display: inline-block;
+	margin-right: 2%;
 }
 
 span{
