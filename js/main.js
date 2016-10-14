@@ -49,10 +49,12 @@ function crearTitulo(){
 };
 
 function moverForm(bloque){
+    
     casilla.style.display = "inline";
-    contenedor.appendChild(casilla);
+    
+    receptor.appendChild(casilla);
     formulario.remove();
-    contenedor.appendChild(formulario);
+    receptor.appendChild(formulario);
 };
 
 /*function crearTarjeta(ancor){
