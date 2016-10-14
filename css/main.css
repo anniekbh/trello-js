@@ -18,22 +18,20 @@ nav{
 
 #receptor {
 	display: inline-block;
-	margin-right: 3%;
-	margin-left: 3%;
 }
 
 #casillero {
 	cursor: pointer;
 	display: inline-block;
-	margin-left: 10%;
+	vertical-align: top;
 }
 
 .bloque{
 	display: inline-block;
-	margin: 1% 2%;
+	margin: 5px 10px;
 }
 
-span{
+.tituloLista{
 	margin-left: 3%;
 	display: inline-block;
 }
@@ -49,9 +47,6 @@ span{
 .ancor{
 	display: block;
 	text-decoration: none;
-}
-.derecha{
-	position: relative;
 }
 
 .estiloTarjeta{

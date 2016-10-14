@@ -10,7 +10,7 @@ window.addEventListener("load", function() {
     casilla.addEventListener("click", function(e) {
         e.preventDefault();
         this.style.display = "none";
-        formulario.style.display = "block";
+        formulario.style.display = "inline-block";
         inpuText.focus();
     });
 
@@ -36,6 +36,7 @@ function crearTitulo(){
     ancor.setAttribute("href", "#");
     ancor.setAttribute("class","ancor")
     bloque.setAttribute("class", "bloque")
+    tituloLista.setAttribute("class", "tituloLista");
     
     ancor.appendChild(textAncor);
     bloque.insertBefore(tituloLista, bloque.children[0]);
@@ -47,16 +48,11 @@ function crearTitulo(){
     });*/  
 };
 
-function moverForm(){
-    receptor.insertBefore(bloque.nextSibling)
-    /*var newReceptor = document.createElement("div");
-
-    newReceptor.setAttribute("class","derecha");
+function moverForm(bloque){
     casilla.style.display = "inline";
-
-    newReceptor.insertBefore(formulario, newReceptor.children[1]);
-    newReceptor.insertBefore(casilla, newReceptor.children[0]);
-    contenedor.appendChild(newReceptor);*/
+    contenedor.appendChild(casilla);
+    formulario.remove();
+    contenedor.appendChild(formulario);
 };
 
 /*function crearTarjeta(ancor){
