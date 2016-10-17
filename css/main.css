@@ -13,7 +13,7 @@ nav{
 }
 
 #contenedor{
-	margin-top: 70px;
+	padding-top: 75px;
 }
 
 #receptor {
@@ -55,4 +55,8 @@ nav{
 	background-color: #FFF;
 	border-radius: 4px;
 	margin-bottom: 8px;
+}
+
+.nuevoBoton{
+	display: block;
 }

@@ -7,15 +7,15 @@ var boton = document.getElementById("boton");
 
 window.addEventListener("load", function() {
 
-    casilla.addEventListener("click", function(e) {
-        e.preventDefault();
+    casilla.addEventListener("click", function(event) {
+        event.preventDefault();
         this.style.display = "none";
         formulario.style.display = "inline-block";
         inpuText.focus();
     });
 
-    boton.addEventListener("click", function(e) {
-        e.preventDefault();
+    boton.addEventListener("click", function(event) {
+        event.preventDefault();
         crearTitulo();
         inpuText.value="";
         moverForm();
@@ -43,9 +43,38 @@ function crearTitulo(){
     bloque.insertBefore(ancor, bloque.children[1]);
     receptor.appendChild(bloque);
     
-    /*ancor.addEventListener("click", function(){
-        crearTarjeta(ancor);
-    });*/  
+    ancor.addEventListener("click", function(event) {
+        event.preventDefault();
+        crearTarjeta();
+
+        function crearTarjeta(){
+        ancor.style.display = "none";
+        
+        var tarjeta = document.createElement("form");
+        var tituloTarjeta = document.createElement("textarea");
+        var botoNuevo = document.createElement("input");
+
+        botoNuevo.setAttribute("type", "submit");
+        botoNuevo.setAttribute("value", "Añadir");
+        botoNuevo.setAttribute("class", "nuevoBoton")
+
+        tarjeta.insertBefore(tituloTarjeta, tarjeta.children[0]);
+        tarjeta.insertBefore(botoNuevo, tarjeta.children[1]);
+        bloque.appendChild(tarjeta);
+        tituloTarjeta.focus();
+
+            botoNuevo.addEventListener("click", function(event) {
+                event.preventDefault();
+                var textoTarjeta = tituloTarjeta.value;
+                var nuevaTarjeta = document.createElement("div");
+
+                nuevaTarjeta.innerHTML = textoTarjeta;
+                tarjeta.style.display = "none";
+                bloque.appendChild(nuevaTarjeta);
+                nuevaTarjeta.classList.add("estiloTarjeta");
+            });
+        };
+    });  
 };
 
 function moverForm(bloque){
@@ -56,31 +85,3 @@ function moverForm(bloque){
     formulario.remove();
     receptor.appendChild(formulario);
 };
-
-/*function crearTarjeta(ancor){
-    ancor.style.display = "none";
-    
-    var nuevoTitulo = document.createElement("textarea");
-    var tarjeta = document.createElement("form");
-    var botoNuevo = document.createElement("input");
-
-    botoNuevo.setAttribute("type", "submit");
-    botoNuevo.setAttribute("value", "Añadir");
-
-    tarjeta.insertBefore(nuevoTitulo, tarjeta.children[0]);
-    tarjeta.insertBefore(botoNuevo, tarjeta.children[1]);
-
-    botoNuevo.addEventListener("click", function(e) {
-            e.preventDefault();
-            var textoTarjeta = nuevoTitulo.value;
-            var nuevaTarjeta = document.createElement("div");
-
-            nuevaTarjeta.innerHTML = textoTarjeta;
-            tarjeta.style.display = "none";
-            ancor.parentElement.appendChild(div);
-            div.classList.add("estiloTarjeta");
-            div.parentElement.appendChild(ancor);
-            ancor.style.display = "block";
-
-        });
-};*/
