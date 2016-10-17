@@ -72,6 +72,8 @@ function crearTitulo(){
                 tarjeta.style.display = "none";
                 bloque.appendChild(nuevaTarjeta);
                 nuevaTarjeta.classList.add("estiloTarjeta");
+                bloque.appendChild(ancor);
+                ancor.style.display = "block";
             });
         };
     });  
