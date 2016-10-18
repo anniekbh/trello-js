@@ -4,6 +4,7 @@ var casilla = document.getElementById("casillero");
 var formulario = document.getElementById("formulario");
 var inpuText = document.getElementById("inpuText");
 var boton = document.getElementById("boton");
+var contador = 1;
 
 window.addEventListener("load", function() {
 
@@ -20,7 +21,6 @@ window.addEventListener("load", function() {
         inpuText.value="";
         moverForm();
     }); 
-    
 });
 
 function crearTitulo(){
@@ -40,43 +40,73 @@ function crearTitulo(){
     
     ancor.appendChild(textAncor);
     bloque.insertBefore(tituloLista, bloque.children[0]);
-    bloque.insertBefore(ancor, bloque.children[1]);
+    bloque.appendChild(ancor);
     receptor.appendChild(bloque);
     
     ancor.addEventListener("click", function(event) {
         event.preventDefault();
-        crearTarjeta();
+        crearTarjeta(ancor);
+    });
 
-        function crearTarjeta(){
-        ancor.style.display = "none";
-        
-        var tarjeta = document.createElement("form");
-        var tituloTarjeta = document.createElement("textarea");
-        var botoNuevo = document.createElement("input");
+    bloque.addEventListener("dragover", dragSobreDiv, false);
+    bloque.addEventListener("dragleave", dragSalioDiv, false);
+    bloque.addEventListener("drop", manejarDrop, false);
 
-        botoNuevo.setAttribute("type", "submit");
-        botoNuevo.setAttribute("value", "Añadir");
-        botoNuevo.setAttribute("class", "nuevoBoton")
-
-        tarjeta.insertBefore(tituloTarjeta, tarjeta.children[0]);
-        tarjeta.insertBefore(botoNuevo, tarjeta.children[1]);
-        bloque.appendChild(tarjeta);
-        tituloTarjeta.focus();
-
-            botoNuevo.addEventListener("click", function(event) {
-                event.preventDefault();
-                var textoTarjeta = tituloTarjeta.value;
-                var nuevaTarjeta = document.createElement("div");
-
-                nuevaTarjeta.innerHTML = textoTarjeta;
-                tarjeta.style.display = "none";
-                bloque.appendChild(nuevaTarjeta);
-                nuevaTarjeta.classList.add("estiloTarjeta");
-                bloque.appendChild(ancor);
-                ancor.style.display = "block";
-            });
+       function dragSobreDiv(e){
+            e.preventDefault();
+            this.classList.add("over");
+            return false;
         };
-    });  
+
+        function dragSalioDiv(e){
+            e.preventDefault();
+            this.classList.remove("over");
+        };
+
+        function manejarDrop(e) {
+            e.preventDefault();
+            var dato = e.dataTransfer.getData("text");
+            e.target.appendChild(document.getElementById(dato));
+        };
+
+};
+
+function crearTarjeta(ancor){
+    ancor.style.display = "none";
+        
+    var tarjeta = document.createElement("form");
+    var tituloTarjeta = document.createElement("textarea");
+    var botoNuevo = document.createElement("input");
+
+    botoNuevo.setAttribute("type", "submit");
+    botoNuevo.setAttribute("value", "Añadir");
+    botoNuevo.setAttribute("class", "nuevoBoton")
+
+    tarjeta.insertBefore(tituloTarjeta, tarjeta.children[0]);
+    tarjeta.insertBefore(botoNuevo, tarjeta.children[1]);
+    ancor.parentElement.appendChild(tarjeta);
+    tituloTarjeta.focus();
+
+        botoNuevo.addEventListener("click", function(event) {
+            event.preventDefault();
+            var textoTarjeta = tituloTarjeta.value;
+            var nuevaTarjeta = document.createElement("div");
+
+            nuevaTarjeta.innerHTML = textoTarjeta;
+            tarjeta.style.display = "none";
+            ancor.parentElement.appendChild(nuevaTarjeta);
+            nuevaTarjeta.classList.add("estiloTarjeta");
+            nuevaTarjeta.setAttribute("draggable", "true");
+            ancor.parentElement.appendChild(ancor);
+            ancor.style.display = "block";
+            nuevaTarjeta.setAttribute("id", contador++);
+
+            nuevaTarjeta.addEventListener("dragstart", dragIniciado, false);
+                function dragIniciado(e) {
+                    //spanIn.style.backgroundColor = "blue";
+                    e.dataTransfer.setData("text", e.target.id);
+                };
+        });
 };
 
 function moverForm(bloque){
