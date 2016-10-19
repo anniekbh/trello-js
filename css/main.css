@@ -4,7 +4,8 @@
 
 body {
 	background-image: url("../img/cat-cute.jpg");
-	white-space: nowrap;
+	overflow-x: auto;
+	overflow-y: auto;
 	background-size: cover;
 	font-family: 'Rubik', sans-serif;
 }
@@ -20,6 +21,7 @@ nav {
 #receptor {
 	display: inline-block;
 	vertical-align: top;
+	white-space: nowrap;
 }
 
 #casillero {
@@ -33,12 +35,13 @@ nav {
 	padding: 1% 2%;
 	width: 270px;
 	vertical-align: top;
+	box-sizing: border-box;
+	white-space: normal;
 }
 
 .tituloLista{
 	display: inline-block;
-	/*word-break: break-all !important;
-	box-sizing: content-box !important;*/
+	word-break: break-all;
 }
 
 .ocultar {
@@ -61,6 +64,9 @@ nav {
 	margin-bottom: 8px;
 	word-wrap: break-word;
 	cursor: pointer;
+}
+.bordeTarjeta{
+	border-radius: 2px dotted black;
 }
 
 .nuevoBoton {
