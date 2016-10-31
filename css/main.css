@@ -3,8 +3,15 @@
 }
 
 body {
+<<<<<<< HEAD
 	background-color: #FAEED4;
 	white-space: nowrap;
+=======
+	background-image: url("../img/cat-cute.jpg");
+	overflow-x: auto;
+	overflow-y: auto;
+	background-size: cover;
+>>>>>>> gh-pages
 	font-family: 'Rubik', sans-serif;
 }
 
@@ -19,6 +26,7 @@ nav {
 #receptor {
 	display: inline-block;
 	vertical-align: top;
+	white-space: nowrap;
 }
 
 #casillero {
@@ -34,12 +42,13 @@ nav {
 	width: 270px;
 	vertical-align: top;
 	background-color: #FDE0B8;
+	box-sizing: border-box;
+	white-space: normal;
 }
 
 .tituloLista{
 	display: inline-block;
-	/*word-break: break-all !important;
-	box-sizing: content-box !important;*/
+	word-break: break-all;
 }
 
 .ocultar {
@@ -62,6 +71,9 @@ nav {
 	margin-bottom: 8px;
 	word-wrap: break-word;
 	cursor: pointer;
+}
+.bordeTarjeta{
+	border-radius: 2px dotted black;
 }
 
 .nuevoBoton {
