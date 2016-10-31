@@ -55,7 +55,6 @@ function crearTitulo(){
        function dragSobreDiv(e){
             e.preventDefault();
             this.classList.add("over");
-            return false;
         };
 
         function dragSalioDiv(e){
