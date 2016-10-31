@@ -3,15 +3,12 @@
 }
 
 body {
-<<<<<<< HEAD
 	background-color: #FAEED4;
 	white-space: nowrap;
-=======
 	background-image: url("../img/cat-cute.jpg");
 	overflow-x: auto;
 	overflow-y: auto;
 	background-size: cover;
->>>>>>> gh-pages
 	font-family: 'Rubik', sans-serif;
 }
 
